@@ -6,8 +6,12 @@
     <title>王馨慧的请假</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap');
-        body { background-color: #f6f8fa; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
+        /* 引入具有手写质感的草书字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&family=Ma+Shan+Zheng&display=swap');
+        
+        body { background-color: #f6f8fa; font-family: -apple-system, sans-serif; }
+        
+        /* 顶部导航及印章 */
         .stamp-container { position: absolute; top: 40px; right: 15px; z-index: 10; }
         .stamp {
             width: 82px; height: 82px; border: 2px solid #52c41a; border-radius: 50%;
@@ -19,27 +23,35 @@
             content: ''; position: absolute; width: 74px; height: 74px;
             border: 1px solid #52c41a; border-radius: 50%;
         }
-        .caoti-signature {
-            font-family: 'Zhi Mang Xing', 'STKaiti', 'KaiTi', cursive;
-            font-size: 3.5rem;
-            transform: rotate(-5deg) skewX(-10deg);
+
+        /* 模拟手机手写签名：模拟压感、倾斜和连笔 */
+        .handwritten-sig {
+            font-family: 'Zhi Mang Xing', 'Ma Shan Zheng', cursive;
+            font-size: 3.8rem;
+            color: #1a1a1a;
             display: inline-block;
-            color: #111;
-            margin-left: 1rem;
-            letter-spacing: -2px;
+            transform: rotate(-6deg) skewX(-12deg); /* 模拟右手书写的自然倾斜 */
+            letter-spacing: -5px; /* 连笔感 */
+            filter: blur(0.3px) contrast(1.2); /* 模拟屏幕显示的轻微晕染 */
+            opacity: 0.9;
+            margin-left: 1.5rem;
+            line-height: 1;
         }
+
+        /* 审批进度线 */
         .progress-line { position: absolute; left: 20px; top: 24px; bottom: 0; width: 1px; background-color: #e5e7eb; }
-        /* 统一左侧标签宽度，确保对齐 */
-        .label-width { width: 7rem; flex-shrink: 0; color: #99a2aa; }
+        
+        /* 严格对齐左侧标签：基于视频和图片的宽度比例 */
+        .label-cell { width: 6.5rem; flex-shrink: 0; color: #9aa2aa; }
     </style>
 </head>
 <body class="text-[15px] pb-10">
 
-    <div class="bg-[#4a90e2] text-white p-3 flex items-center justify-between sticky top-0 z-50">
-        <span class="text-2xl w-10 text-left cursor-pointer">〈</span>
-        <div class="flex flex-col items-center justify-center flex-1">
+    <div class="bg-[#4a90e2] text-white p-3 flex items-center justify-between sticky top-0 z-50 shadow-sm">
+        <span class="text-2xl w-10 text-left">〈</span>
+        <div class="flex flex-col items-center flex-1">
             <span class="text-[17px] font-medium tracking-wide">王馨慧的请假</span>
-            <span class="text-[10px] opacity-80 font-light">app.uyiban.com</span>
+            <span class="text-[10px] opacity-80">app.uyiban.com</span>
         </div>
         <div class="flex space-x-1 w-10 justify-end">
             <div class="w-1 h-1 bg-white rounded-full"></div>
@@ -68,8 +80,7 @@
         <div class="px-4 py-4 flex justify-between items-center border-b">
             <span class="text-gray-400">姓名</span>
             <div class="flex items-center">
-                <span class="text-gray-800">王馨慧(2025201976)</span>
-                <span class="ml-1 text-gray-300">〉</span>
+                <span class="text-gray-800">王馨慧(2025201976)</span> <span class="ml-1 text-gray-300">〉</span>
             </div>
         </div>
 
@@ -78,7 +89,7 @@
             <span class="text-gray-500 text-[13px]">请假信息</span>
         </div>
         <div class="px-4 py-4 flex items-center border-b">
-            <span class="label-width">是否补假</span>
+            <span class="label-cell">是否补假</span>
             <span class="text-gray-800">是</span>
         </div>
 
@@ -88,22 +99,22 @@
         </div>
         
         <div class="px-4 py-3 space-y-4 border-b">
-            <div class="flex"><span class="label-width">审批编号</span><span class="text-gray-700">20251225162449618345</span></div>
-            <div class="flex"><span class="label-width">是否离校</span><span class="text-gray-700">是</span></div>
-            <div class="flex"><span class="label-width">开始时间</span><span id="st" class="text-gray-700"></span></div>
-            <div class="flex"><span class="label-width">结束时间</span><span id="et" class="text-gray-700"></span></div>
-            <div class="flex"><span class="label-width">时长(天)</span><span class="text-gray-700">0.01</span></div>
-            <div class="flex"><span class="label-width">请假类型</span><span class="text-gray-700">病假</span></div>
-            <div class="flex"><span class="label-width">本人联系电话</span><span class="text-gray-700">17822828018</span></div>
-            <div class="flex"><span class="label-width">紧急联系人</span><span class="text-gray-700">妈妈</span></div>
-            <div class="flex"><span class="label-width">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
-            <div class="flex"><span class="label-width">请假原因</span><span class="text-gray-700">去医院</span></div>
-            <div class="flex"><span class="label-width">请假后去向</span><span class="text-gray-700">医院</span></div>
+            <div class="flex"><span class="label-cell">审批编号</span><span class="text-gray-700">20251225162449618345</span></div>
+            <div class="flex"><span class="label-cell">是否离校</span><span class="text-gray-700">是</span></div>
+            <div class="flex"><span class="label-cell">开始时间</span><span id="st" class="text-gray-700"></span></div>
+            <div class="flex"><span class="label-cell">结束时间</span><span id="et" class="text-gray-700"></span></div>
+            <div class="flex"><span class="label-cell">时长(天)</span><span class="text-gray-700">0.01</span></div>
+            <div class="flex"><span class="label-cell">请假类型</span><span class="text-gray-700">病假</span></div>
+            <div class="flex"><span class="label-cell">本人联系电话</span><span class="text-gray-700">17822828018</span></div>
+            <div class="flex"><span class="label-cell">紧急联系人</span><span class="text-gray-700">妈妈</span></div>
+            <div class="flex"><span class="label-cell">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
+            <div class="flex"><span class="label-cell">请假原因</span><span class="text-gray-700">去医院</span></div>
+            <div class="flex"><span class="label-cell">请假后去向</span><span class="text-gray-700">医院</span></div>
             
-            <div class="flex flex-col pt-1">
-                <span class="text-gray-400 mb-2">手写签名</span>
-                <div>
-                    <span class="caoti-signature">王馨慧</span>
+            <div class="flex flex-col pt-2">
+                <span class="text-gray-400 mb-1">手写签名</span>
+                <div class="h-20 flex items-center overflow-hidden">
+                    <span class="handwritten-sig">王馨慧</span>
                 </div>
             </div>
         </div>
@@ -117,7 +128,7 @@
             <div class="flex relative z-10 items-start">
                 <div class="w-9 h-9 bg-[#52c41a] rounded-full flex items-center justify-center text-white text-xs shrink-0 font-bold">1</div>
                 <div class="ml-4">
-                    <div class="text-gray-800 font-medium text-[15px]">王旭(202504006)</div>
+                    <div class="text-gray-800 font-medium">王旭(202504006)</div>
                     <div class="text-[#52c41a] text-sm py-0.5">已同意</div>
                     <div id="pt" class="text-gray-400 text-xs"></div>
                 </div>
@@ -125,17 +136,15 @@
         </div>
     </div>
 
-    <div class="mt-8 text-center text-[#4a90e2] text-sm mb-4">转发审批表单</div>
+    <div class="mt-8 text-center text-[#4a90e2] text-sm mb-6">转发审批表单</div>
 
     <script>
-        const now = new Date();
-        const y = now.getFullYear();
-        const m = String(now.getMonth() + 1).padStart(2, '0');
-        const d = String(now.getDate()).padStart(2, '0');
-        
-        document.getElementById('st').innerText = `${y}-${m}-${d} 16:23`;
-        document.getElementById('et').innerText = `${y}-${m}-${d} 16:43`;
-        document.getElementById('pt').innerText = `${y}-${m}-${d} 16:25 通过`;
+        // 自动计算日期
+        const d = new Date();
+        const dateStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        document.getElementById('st').innerText = `${dateStr} 16:23`;
+        document.getElementById('et').innerText = `${dateStr} 16:43`;
+        document.getElementById('pt').innerText = `${dateStr} 16:25 通过`;
     </script>
 </body>
 </html>
