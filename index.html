@@ -6,6 +6,7 @@
     <title>王馨慧的请假</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap');
         body { background-color: #f6f8fa; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
         .stamp-container { position: absolute; top: 40px; right: 15px; z-index: 10; }
         .stamp {
@@ -18,19 +19,28 @@
             content: ''; position: absolute; width: 74px; height: 74px;
             border: 1px solid #52c41a; border-radius: 50%;
         }
+        .caoti-signature {
+            font-family: 'Zhi Mang Xing', 'STKaiti', 'KaiTi', cursive;
+            font-size: 3.5rem;
+            transform: rotate(-5deg) skewX(-10deg);
+            display: inline-block;
+            color: #111;
+            margin-left: 1rem;
+            letter-spacing: -2px;
+        }
         .progress-line { position: absolute; left: 20px; top: 24px; bottom: 0; width: 1px; background-color: #e5e7eb; }
+        /* 统一左侧标签宽度，确保对齐 */
+        .label-width { width: 7rem; flex-shrink: 0; color: #99a2aa; }
     </style>
 </head>
 <body class="text-[15px] pb-10">
 
     <div class="bg-[#4a90e2] text-white p-3 flex items-center justify-between sticky top-0 z-50">
-        <span class="text-2xl w-10 text-left">〈</span>
-        
+        <span class="text-2xl w-10 text-left cursor-pointer">〈</span>
         <div class="flex flex-col items-center justify-center flex-1">
             <span class="text-[17px] font-medium tracking-wide">王馨慧的请假</span>
             <span class="text-[10px] opacity-80 font-light">app.uyiban.com</span>
         </div>
-        
         <div class="flex space-x-1 w-10 justify-end">
             <div class="w-1 h-1 bg-white rounded-full"></div>
             <div class="w-1 h-1 bg-white rounded-full"></div>
@@ -67,8 +77,8 @@
             <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
             <span class="text-gray-500 text-[13px]">请假信息</span>
         </div>
-        <div class="px-4 py-4 flex justify-between border-b">
-            <span class="text-gray-400">是否补假</span>
+        <div class="px-4 py-4 flex items-center border-b">
+            <span class="label-width">是否补假</span>
             <span class="text-gray-800">是</span>
         </div>
 
@@ -78,21 +88,23 @@
         </div>
         
         <div class="px-4 py-3 space-y-4 border-b">
-            <div class="flex"><span class="text-gray-400 w-28">审批编号</span><span class="text-gray-700">20251225162449618345</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">是否离校</span><span class="text-gray-700">是</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">开始时间</span><span id="st" class="text-gray-700"></span></div>
-            <div class="flex"><span class="text-gray-400 w-28">结束时间</span><span id="et" class="text-gray-700"></span></div>
-            <div class="flex"><span class="text-gray-400 w-28">时长(天)</span><span class="text-gray-700">0.01</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">请假类型</span><span class="text-gray-700">病假</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">本人联系电话</span><span class="text-gray-700">17822828018</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">紧急联系人</span><span class="text-gray-700">妈妈</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">请假原因</span><span class="text-gray-700">去医院</span></div>
-            <div class="flex"><span class="text-gray-400 w-28">请假后去向</span><span class="text-gray-700">医院</span></div>
+            <div class="flex"><span class="label-width">审批编号</span><span class="text-gray-700">20251225162449618345</span></div>
+            <div class="flex"><span class="label-width">是否离校</span><span class="text-gray-700">是</span></div>
+            <div class="flex"><span class="label-width">开始时间</span><span id="st" class="text-gray-700"></span></div>
+            <div class="flex"><span class="label-width">结束时间</span><span id="et" class="text-gray-700"></span></div>
+            <div class="flex"><span class="label-width">时长(天)</span><span class="text-gray-700">0.01</span></div>
+            <div class="flex"><span class="label-width">请假类型</span><span class="text-gray-700">病假</span></div>
+            <div class="flex"><span class="label-width">本人联系电话</span><span class="text-gray-700">17822828018</span></div>
+            <div class="flex"><span class="label-width">紧急联系人</span><span class="text-gray-700">妈妈</span></div>
+            <div class="flex"><span class="label-width">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
+            <div class="flex"><span class="label-width">请假原因</span><span class="text-gray-700">去医院</span></div>
+            <div class="flex"><span class="label-width">请假后去向</span><span class="text-gray-700">医院</span></div>
             
             <div class="flex flex-col pt-1">
                 <span class="text-gray-400 mb-2">手写签名</span>
-                <span style="font-family: 'STKaiti', 'KaiTi', '楷体', serif;" class="text-4xl font-bold italic text-[#222] -rotate-3 pl-4">王馨慧</span>
+                <div>
+                    <span class="caoti-signature">王馨慧</span>
+                </div>
             </div>
         </div>
 
@@ -103,7 +115,7 @@
         <div class="px-4 py-6 relative">
             <div class="progress-line"></div>
             <div class="flex relative z-10 items-start">
-                <div class="w-9 h-9 bg-[#52c41a] rounded-full flex items-center justify-center text-white text-xs shrink-0">1</div>
+                <div class="w-9 h-9 bg-[#52c41a] rounded-full flex items-center justify-center text-white text-xs shrink-0 font-bold">1</div>
                 <div class="ml-4">
                     <div class="text-gray-800 font-medium text-[15px]">王旭(202504006)</div>
                     <div class="text-[#52c41a] text-sm py-0.5">已同意</div>
@@ -113,7 +125,7 @@
         </div>
     </div>
 
-    <div class="mt-8 text-center text-[#4a90e2] text-sm">转发审批表单</div>
+    <div class="mt-8 text-center text-[#4a90e2] text-sm mb-4">转发审批表单</div>
 
     <script>
         const now = new Date();
