@@ -95,3 +95,61 @@
                 <span class="text-[#bbb] w-28 flex-shrink-0">是否离校</span>
                 <span class="text-[#444]">是</span>
             </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">开始时间</span>
+                <span id="startTime" class="text-[#444]">2026-03-10 18:02</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">结束时间</span>
+                <span id="endTime" class="text-[#444]">2026-03-10 19:33</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">时长(天)</span>
+                <span class="text-[#444]">0.06</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">请假类型</span>
+                <span class="text-[#444]">事假</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">本人联系电话</span>
+                <span class="text-[#444]">138****5678</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">紧急联系人</span>
+                <span class="text-[#444]">妈妈</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">紧急联系电话</span>
+                <span class="text-[#444]">139****1234</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">请假原因</span>
+                <span class="text-[#444]">请假去驾校</span>
+            </div>
+            <div class="flex">
+                <span class="text-[#bbb] w-28 flex-shrink-0">请假后去向</span>
+                <span class="text-[#444]">驾校</span>
+            </div>
+            <div class="flex flex-col pt-2">
+                <span class="text-[#bbb] mb-3">手写签名</span>
+                <span style="font-family: 'STKaiti', 'KaiTi', '楷体', serif;" class="text-4xl font-bold ml-4 -rotate-2">王馨慧</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-8 mb-10 text-center">
+        <a href="#" class="text-[#4a90e2] text-sm">转发审批表单</a>
+    </div>
+
+    <script>
+        // 获取当前真实日期
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        document.getElementById('startTime').innerText = `${y}-${m}-${d} 18:02`;
+        document.getElementById('endTime').innerText = `${y}-${m}-${d} 19:33`;
+    </script>
+</body>
+</html>
