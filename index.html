@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>请假详情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f5f7fa; font-family: -apple-system, sans-serif; }
+        .stamp {
+            position: absolute; top: 60px; right: 20px; width: 85px; height: 85px;
+            border: 3px solid #52c41a; border-radius: 50%; color: #52c41a;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-weight: bold; transform: rotate(-15deg); opacity: 0.8; font-size: 14px;
+        }
+    </style>
+</head>
+<body class="pb-10">
+    <div class="bg-blue-500 text-white p-4 flex items-center justify-between sticky top-0 z-10">
+        <span class="text-xl">〈</span>
+        <div class="text-center">
+            <h1 class="text-lg">王馨慧的请假</h1>
+            <p class="text-xs opacity-80">app.uyiban.com</p>
+        </div>
+        <span class="text-xl">···</span>
+    </div>
+
+    <div class="bg-white p-4 text-center border-b relative">
+        <h2 class="text-gray-800 text-lg">王馨慧的请假</h2>
+        <div class="stamp"><div>审批</div><div>通过</div></div>
+    </div>
+
+    <div class="mt-2 text-sm">
+        <div class="px-4 py-2 flex items-center bg-gray-50"><div class="w-1 h-4 bg-blue-500 mr-2"></div><span class="text-gray-600 font-medium">申请人</span></div>
+        <div class="bg-white px-4 py-4 flex justify-between border-b"><span class="text-gray-500">姓名</span><span class="text-gray-800 font-medium">王馨慧(20********)</span></div>
+
+        <div class="px-4 py-2 flex items-center bg-gray-50 mt-2"><div class="w-1 h-4 bg-blue-500 mr-2"></div><span class="text-gray-600 font-medium">申请内容</span></div>
+        <div class="bg-white px-4 py-3 border-b space-y-4">
+            <div class="flex"><span class="text-gray-400 w-24">审批编号</span><span class="text-gray-700">20260310180313758623</span></div>
+            <div class="flex"><span class="text-gray-400 w-24">是否离校</span><span class="text-gray-700">是</span></div>
+            <div class="flex"><span class="text-gray-400 w-24">开始时间</span><span id="startTime" class="text-gray-700"></span></div>
+            <div class="flex"><span class="text-gray-400 w-24">结束时间</span><span id="endTime" class="text-gray-700"></span></div>
+            <div class="flex"><span class="text-gray-400 w-24">时长(天)</span><span class="text-gray-700">0.06</span></div>
+            <div class="flex"><span class="text-gray-400 w-24">请假原因</span><span class="text-gray-700">请假去驾校</span></div>
+            <div class="flex flex-col">
+                <span class="text-gray-400 mb-2">手写签名</span>
+                <span class="text-3xl italic" style="font-family: 'STKaiti', 'KaiTi', cursive;">王馨慧</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        document.getElementById('startTime').innerText = `${year}-${month}-${day} 18:02`;
+        document.getElementById('endTime').innerText = `${year}-${month}-${day} 19:33`;
+    </script>
+</body>
+</html>
