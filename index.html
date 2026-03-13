@@ -6,16 +6,16 @@
     <title>王馨慧的请假</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f6f8fa; font-family: -apple-system, sans-serif; }
+        body { background-color: #f6f8fa; font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
         .stamp-container { position: absolute; top: 40px; right: 15px; z-index: 10; }
         .stamp {
-            width: 80px; height: 80px; border: 2px solid #52c41a; border-radius: 50%;
+            width: 82px; height: 82px; border: 2px solid #52c41a; border-radius: 50%;
             color: #52c41a; display: flex; flex-direction: column; align-items: center;
-            justify-content: center; transform: rotate(-15deg); background: rgba(255, 255, 255, 0.5);
+            justify-content: center; transform: rotate(-15deg); background: rgba(255, 255, 255, 0.4);
             font-weight: bold; position: relative;
         }
         .stamp::before {
-            content: ''; position: absolute; width: 72px; height: 72px;
+            content: ''; position: absolute; width: 74px; height: 74px;
             border: 1px solid #52c41a; border-radius: 50%;
         }
         .progress-line { position: absolute; left: 20px; top: 24px; bottom: 0; width: 1px; background-color: #e5e7eb; }
@@ -23,13 +23,15 @@
 </head>
 <body class="text-[15px] pb-10">
 
-    <div class="bg-[#4a90e2] text-white p-3 flex items-center sticky top-0 z-50">
-        <span class="text-2xl mr-3">〈</span>
-        <div class="flex flex-col">
-            <span class="text-[16px]">王馨慧的请假</span>
-            <span class="text-[10px] opacity-70">app.uyiban.com</span>
+    <div class="bg-[#4a90e2] text-white p-3 flex items-center justify-between sticky top-0 z-50">
+        <span class="text-2xl w-10 text-left">〈</span>
+        
+        <div class="flex flex-col items-center justify-center flex-1">
+            <span class="text-[17px] font-medium tracking-wide">王馨慧的请假</span>
+            <span class="text-[10px] opacity-80 font-light">app.uyiban.com</span>
         </div>
-        <div class="ml-auto flex space-x-1">
+        
+        <div class="flex space-x-1 w-10 justify-end">
             <div class="w-1 h-1 bg-white rounded-full"></div>
             <div class="w-1 h-1 bg-white rounded-full"></div>
             <div class="w-1 h-1 bg-white rounded-full"></div>
@@ -38,7 +40,7 @@
 
     <div class="bg-white relative">
         <div class="py-5 text-center border-b">
-            <h2 class="text-lg">王馨慧的请假</h2>
+            <h2 class="text-[18px] text-[#111]">王馨慧的请假</h2>
         </div>
 
         <div class="stamp-container">
@@ -51,7 +53,7 @@
 
         <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
             <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
-            <span class="text-gray-500 text-sm">申请人</span>
+            <span class="text-gray-500 text-[13px]">申请人</span>
         </div>
         <div class="px-4 py-4 flex justify-between items-center border-b">
             <span class="text-gray-400">姓名</span>
@@ -61,18 +63,18 @@
             </div>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center mt-0.5">
             <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
-            <span class="text-gray-500 text-sm">请假信息</span>
+            <span class="text-gray-500 text-[13px]">请假信息</span>
         </div>
         <div class="px-4 py-4 flex justify-between border-b">
             <span class="text-gray-400">是否补假</span>
             <span class="text-gray-800">是</span>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center mt-0.5">
             <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
-            <span class="text-gray-500 text-sm">申请内容</span>
+            <span class="text-gray-500 text-[13px]">申请内容</span>
         </div>
         
         <div class="px-4 py-3 space-y-4 border-b">
@@ -87,23 +89,24 @@
             <div class="flex"><span class="text-gray-400 w-28">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
             <div class="flex"><span class="text-gray-400 w-28">请假原因</span><span class="text-gray-700">去医院</span></div>
             <div class="flex"><span class="text-gray-400 w-28">请假后去向</span><span class="text-gray-700">医院</span></div>
-            <div class="flex flex-col">
+            
+            <div class="flex flex-col pt-1">
                 <span class="text-gray-400 mb-2">手写签名</span>
-                <img src="https://fontmeme.com/permalink/240522/d75b8e9b0e1a6c4c8d5c5f8a5a5a5a5a.png" class="w-32 h-auto opacity-90" style="filter: grayscale(1) contrast(200%);" alt="签名">
-                </div>
+                <span style="font-family: 'STKaiti', 'KaiTi', '楷体', serif;" class="text-4xl font-bold italic text-[#222] -rotate-3 pl-4">王馨慧</span>
+            </div>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center mt-0.5">
             <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
-            <span class="text-gray-500 text-sm">审批进度</span>
+            <span class="text-gray-500 text-[13px]">审批进度</span>
         </div>
         <div class="px-4 py-6 relative">
             <div class="progress-line"></div>
-            <div class="flex relative z-10">
-                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">1</div>
+            <div class="flex relative z-10 items-start">
+                <div class="w-9 h-9 bg-[#52c41a] rounded-full flex items-center justify-center text-white text-xs shrink-0">1</div>
                 <div class="ml-4">
-                    <div class="text-gray-800 font-medium">王旭(202504006)</div>
-                    <div class="text-green-500 text-sm">已同意</div>
+                    <div class="text-gray-800 font-medium text-[15px]">王旭(202504006)</div>
+                    <div class="text-[#52c41a] text-sm py-0.5">已同意</div>
                     <div id="pt" class="text-gray-400 text-xs"></div>
                 </div>
             </div>
@@ -117,6 +120,7 @@
         const y = now.getFullYear();
         const m = String(now.getMonth() + 1).padStart(2, '0');
         const d = String(now.getDate()).padStart(2, '0');
+        
         document.getElementById('st').innerText = `${y}-${m}-${d} 16:23`;
         document.getElementById('et').innerText = `${y}-${m}-${d} 16:43`;
         document.getElementById('pt').innerText = `${y}-${m}-${d} 16:25 通过`;
