@@ -6,184 +6,120 @@
     <title>王馨慧的请假</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #f6f8fa;
-            font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
-            -webkit-font-smoothing: antialiased;
+        body { background-color: #f6f8fa; font-family: -apple-system, sans-serif; }
+        .stamp-container { position: absolute; top: 40px; right: 15px; z-index: 10; }
+        .stamp {
+            width: 80px; height: 80px; border: 2px solid #52c41a; border-radius: 50%;
+            color: #52c41a; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; transform: rotate(-15deg); background: rgba(255, 255, 255, 0.5);
+            font-weight: bold; position: relative;
         }
-        /* 复刻审批通过水印图章 */
-        .stamp-box {
-            position: absolute;
-            top: 48px;
-            right: 18px;
-            z-index: 100;
-            pointer-events: none;
+        .stamp::before {
+            content: ''; position: absolute; width: 72px; height: 72px;
+            border: 1px solid #52c41a; border-radius: 50%;
         }
-        .stamp-circle {
-            width: 85px;
-            height: 85px;
-            border: 2px solid #52c41a;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: rotate(-15deg);
-            background: rgba(255, 255, 255, 0.4);
-            position: relative;
-        }
-        /* 内部细圆圈 */
-        .stamp-circle::before {
-            content: '';
-            position: absolute;
-            width: 75px;
-            height: 75px;
-            border: 1px solid #52c41a;
-            border-radius: 50%;
-        }
-        .stamp-text {
-            color: #52c41a;
-            font-size: 16px;
-            font-weight: 900;
-            line-height: 1.2;
-            letter-spacing: 2px;
-        }
-        .stamp-stars {
-            color: #52c41a;
-            font-size: 8px;
-            margin-top: 1px;
-        }
+        .progress-line { position: absolute; left: 20px; top: 24px; bottom: 0; width: 1px; background-color: #e5e7eb; }
     </style>
 </head>
-<body class="pb-12 text-[15px]">
+<body class="text-[15px] pb-10">
 
-    <div class="bg-[#4a90e2] text-white p-3 flex items-center justify-between sticky top-0 z-50">
-        <div class="flex items-center">
-            <span class="text-2xl mr-3">〈</span>
-            <div class="flex flex-col">
-                <span class="text-base font-medium leading-tight">王馨慧的请假</span>
-                <span class="text-[10px] opacity-70">app.uyiban.com</span>
-            </div>
+    <div class="bg-[#4a90e2] text-white p-3 flex items-center sticky top-0 z-50">
+        <span class="text-2xl mr-3">〈</span>
+        <div class="flex flex-col">
+            <span class="text-[16px]">王馨慧的请假</span>
+            <span class="text-[10px] opacity-70">app.uyiban.com</span>
         </div>
-        <div class="flex space-x-1">
+        <div class="ml-auto flex space-x-1">
             <div class="w-1 h-1 bg-white rounded-full"></div>
             <div class="w-1 h-1 bg-white rounded-full"></div>
             <div class="w-1 h-1 bg-white rounded-full"></div>
         </div>
     </div>
 
-    <div class="relative bg-white border-b">
-        <div class="py-5 text-center">
-            <h2 class="text-[18px] text-[#333]">王馨慧的请假</h2>
+    <div class="bg-white relative">
+        <div class="py-5 text-center border-b">
+            <h2 class="text-lg">王馨慧的请假</h2>
         </div>
 
-        <div class="stamp-box">
-            <div class="stamp-circle">
-                <div class="stamp-text">审批</div>
-                <div class="stamp-text">通过</div>
-                <div class="stamp-stars">★★★</div>
+        <div class="stamp-container">
+            <div class="stamp">
+                <span class="text-[16px]">审批</span>
+                <span class="text-[16px]">通过</span>
+                <span class="text-[8px]">★★★</span>
             </div>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-2 flex items-center">
-            <div class="w-1 h-4 bg-[#4a90e2] mr-2"></div>
-            <span class="text-[#666] font-medium text-sm">申请人</span>
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+            <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
+            <span class="text-gray-500 text-sm">申请人</span>
         </div>
         <div class="px-4 py-4 flex justify-between items-center border-b">
-            <span class="text-[#999]">姓名</span>
-            <div class="text-[#333] flex items-center">
-                <span>王馨慧(2022030842)</span> <span class="ml-1 text-[#ccc] font-serif">〉</span>
+            <span class="text-gray-400">姓名</span>
+            <div class="flex items-center">
+                <span class="text-gray-800">王馨慧(2025201976)</span>
+                <span class="ml-1 text-gray-300">〉</span>
             </div>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-2 flex items-center">
-            <div class="w-1 h-4 bg-[#4a90e2] mr-2"></div>
-            <span class="text-[#666] font-medium text-sm">请假信息</span>
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+            <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
+            <span class="text-gray-500 text-sm">请假信息</span>
         </div>
         <div class="px-4 py-4 flex justify-between border-b">
-            <span class="text-[#999]">是否补假</span>
-            <span class="text-[#333]">是</span>
+            <span class="text-gray-400">是否补假</span>
+            <span class="text-gray-800">是</span>
         </div>
 
-        <div class="bg-[#f2f5f8] px-4 py-2 flex items-center">
-            <div class="w-1 h-4 bg-[#4a90e2] mr-2"></div>
-            <span class="text-[#666] font-medium text-sm">申请内容</span>
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+            <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
+            <span class="text-gray-500 text-sm">申请内容</span>
         </div>
         
-        <div class="px-4 py-3 space-y-4">
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">审批编号</span>
-                <span class="text-[#444]">20260310180313758623</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">是否离校</span>
-                <span class="text-[#444]">是</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">开始时间</span>
-                <span id="startTime" class="text-[#444]"></span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">结束时间</span>
-                <span id="endTime" class="text-[#444]"></span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">时长(天)</span>
-                <span class="text-[#444]">0.06</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">请假类型</span>
-                <span class="text-[#444]">事假</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">本人联系电话</span>
-                <span class="text-[#444]">13812345678</span> </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">紧急联系人</span>
-                <span class="text-[#444]">妈妈</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">紧急联系电话</span>
-                <span class="text-[#444]">13900008888</span> </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">请假原因</span>
-                <span class="text-[#444]">请假去驾校</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">请假后去向</span>
-                <span class="text-[#444]">驾校</span>
-            </div>
-            <div class="flex">
-                <span class="text-[#bbb] w-28 flex-shrink-0">请假附件</span>
-                <span class="text-[#bbb] text-sm">(如病例截图)</span>
-            </div>
-            
-            <div class="pt-2">
-                <div class="text-[#bbb] mb-2">手写签名</div>
-                <div class="pl-4">
-                    <span style="font-family: 'STKaiti', 'KaiTi', '楷体', serif;" class="text-4xl font-bold italic text-[#222] -rotate-3 inline-block">王馨慧</span>
+        <div class="px-4 py-3 space-y-4 border-b">
+            <div class="flex"><span class="text-gray-400 w-28">审批编号</span><span class="text-gray-700">20251225162449618345</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">是否离校</span><span class="text-gray-700">是</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">开始时间</span><span id="st" class="text-gray-700"></span></div>
+            <div class="flex"><span class="text-gray-400 w-28">结束时间</span><span id="et" class="text-gray-700"></span></div>
+            <div class="flex"><span class="text-gray-400 w-28">时长(天)</span><span class="text-gray-700">0.01</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">请假类型</span><span class="text-gray-700">病假</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">本人联系电话</span><span class="text-gray-700">17822828018</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">紧急联系人</span><span class="text-gray-700">妈妈</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">紧急联系电话</span><span class="text-gray-700">16685770932</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">请假原因</span><span class="text-gray-700">去医院</span></div>
+            <div class="flex"><span class="text-gray-400 w-28">请假后去向</span><span class="text-gray-700">医院</span></div>
+            <div class="flex flex-col">
+                <span class="text-gray-400 mb-2">手写签名</span>
+                <img src="https://fontmeme.com/permalink/240522/d75b8e9b0e1a6c4c8d5c5f8a5a5a5a5a.png" class="w-32 h-auto opacity-90" style="filter: grayscale(1) contrast(200%);" alt="签名">
+                </div>
+        </div>
+
+        <div class="bg-[#f2f5f8] px-4 py-1.5 flex items-center">
+            <div class="w-1 h-3.5 bg-[#4a90e2] mr-2"></div>
+            <span class="text-gray-500 text-sm">审批进度</span>
+        </div>
+        <div class="px-4 py-6 relative">
+            <div class="progress-line"></div>
+            <div class="flex relative z-10">
+                <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">1</div>
+                <div class="ml-4">
+                    <div class="text-gray-800 font-medium">王旭(202504006)</div>
+                    <div class="text-green-500 text-sm">已同意</div>
+                    <div id="pt" class="text-gray-400 text-xs"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="py-8 text-center">
-        <span class="text-[#4a90e2] text-sm">转发审批表单</span>
-    </div>
+    <div class="mt-8 text-center text-[#4a90e2] text-sm">转发审批表单</div>
 
     <script>
-        // 自动计算日期脚本
-        function updateTime() {
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            
-            // 拼接日期，保持图片中的具体时间
-            document.getElementById('startTime').innerText = `${year}-${month}-${day} 18:02`;
-            document.getElementById('endTime').innerText = `${year}-${month}-${day} 19:33`;
-        }
-        updateTime();
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        document.getElementById('st').innerText = `${y}-${m}-${d} 16:23`;
+        document.getElementById('et').innerText = `${y}-${m}-${d} 16:43`;
+        document.getElementById('pt').innerText = `${y}-${m}-${d} 16:25 通过`;
     </script>
 </body>
 </html>
